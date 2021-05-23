@@ -111,6 +111,6 @@
     mysqli_query($conn, $sql);
 
     CloseCon($conn);
-    header("Location: summary.php");
+    header("Location: nutritionsummary.php");
 
 ?>
