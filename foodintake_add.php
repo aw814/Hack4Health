@@ -39,7 +39,7 @@
     $response = json_decode($rawdata, true);
     echo 'API response is ' . $response . '<br /><br /><br /><br /><br /><br /><br /><br />';
     
-    $foodNutrientsArray = $response.foods[0].foodNutrients;
+    $foodNutrientsArray = $response['foods'][0]['foodNutrients'][0];
     echo 'food nutrients array is ' . $foodNutrientsArray . '<br /><br />';
     
     //echo 'food nutrients array element 0 is ' . $foodNutrientsArray[0] . '<br /><br />';
