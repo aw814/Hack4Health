@@ -27,19 +27,69 @@
     <script src="js/vendor/modernizr-3.11.2.min.js"></script>
     <script src="js/vendor/jquery-3.6.0.js"></script>
     <script src="js/plugins.js"></script>
-    <script src="js/foodintake.js"></script>
+    <!-- <script src="js/foodintake.js"></script> -->
+
+    <?php
+      $MY_API_KEY = "Nns7eKVF4qQtGNOqQjLzB4AWmHDE8K7hwbw0oLFQ"; // in future, put key in external file
+
+      $item = '';
+      $data = '';
+      
+      // vitamins
+      $vit_a = '';
+      $vit_d = '';
+      $vit_e = '';
+      $vit_k = '';
+      $vit_c = '';
+      // elements
+      $calcium = '';
+      $copper = '';
+      $iodine = '';
+      $fluoride = '';
+      $iron = '';
+      // macronutrients
+      $carb = '';
+      $protein = '';
+      $fiibre = '';
+      $water = '';
+
+      // API call
+      // decode JSON results from API
+      // save to variables
+      // populate HTML on page
+
+      require_once("call_api.php");
+
+      function getNutritionData($item, $quantity){
+        $rawdata = callAPI(
+          'GET', 
+          'https://api.nal.usda.gov/fdc/v1/foods/search?api_key='.$MY_API_KEY.'&query='.$item, 
+          false
+        );
+        $response = json_decode($rawdata, true);
+        echo $response;
+        // $errors = $response['response']['errors'];
+        // $data = $response['response']['data'][0];
+      }
+     
+    ?>
 
     <h1>Food Intake</h1>
 
-    <label for="food">Enter in food item:</label><br />
-    <input type="text" id="food" name="food" />
+    <form action="getNutritionData( $_GET['food'], $_GET['quantity'] )" method="post">
+      <label for="food">Enter in food item:</label><br />
+      <input type="text" id="food" name="food" />
+      <br /><br />
+
+      <label for="quantity">Enter in quantity:</label><br />
+      <input type="text" id="quantity" name="quantity" />
+
+      <!-- <button id="btn_add">Add</button> -->
+      <input type="submit" value="Add" />
+    </form>
+
     <br /><br />
 
-    <label for="quantity">Enter in quantity:</label><br />
-    <input type="text" id="quantity" name="quantity" />
-    <br /><br />
-
-    <button id="btn_add">Add</button>
 
     <br /><br />
     <div id="feedback" style="color: red"></div>
