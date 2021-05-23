@@ -1,6 +1,9 @@
 <?php
     session_start();
+    include 'connect.php';
+    $conn = OpenCon();
     $email = $_SESSION['email'];
+    // echo $email;
 
     require_once("call_api.php");
     $MY_API_KEY = "Nns7eKVF4qQtGNOqQjLzB4AWmHDE8K7hwbw0oLFQ"; // in future, put key in external file
@@ -12,7 +15,7 @@
     echo 'quantity is ' . $quantity . '<br /><br />';
 
     // Variables
-    $data = '';
+    $name = '';
     // vitamins
     $vit_a = '';
     $vit_d = '';
@@ -28,7 +31,7 @@
     // macronutrients
     $carb = '';
     $protein = '';
-    $fiibre = '';
+    $fibre = '';
     $water = '';
     
     // API call
@@ -40,15 +43,16 @@
     // echo 'API response raw data is ' . $rawdata . '<br /><br />';
 
     $response = json_decode($rawdata, true);
-    echo 'API response is ' . $response['foods'] . '<br /><br /><br /><br /><br /><br /><br /><br />';
+    // echo 'API response is ' . $response['foods'] . '<br /><br /><br /><br /><br /><br /><br /><br />';
     // echo 'API response is ' . $response . '<br /><br /><br /><br /><br /><br /><br /><br />';
 
-    $nutrientArray = array('Vitamin A'=>array('0', false),'Vitamin D'=>array('0', false),
-                           'Vitamin E'=>array('0', false),'Vitamin K'=>array('0', false),'Vitamin C'=>array('0', false),
-                            'Calcium'=>array('0', false),'Copper'=>array('0', false),'Iodine'=>array('0', false),
-                            'Fluoride'=>array('0', false),'Iron'=>array('0', false),
-                            'Carb'=>array('0', false),'Protein'=>array('0', false),
-                            'Fibre'=>array('0', false),'Water'=>array('0', false));
+    $nutrientArray = array('Vitamin A'=>array('0','',false),'Vitamin D'=>array('0','',false),
+                           'Vitamin E'=>array('0','',false),'Vitamin K'=>array('0','',false),
+                           'Vitamin C'=>array('0','',false),'Calcium'=>array('0','',false),
+                           'Copper'=>array('0','',false),'Iodine'=>array('0','',false),
+                            'Fluoride'=>array('0','',false),'Iron'=>array('0','',false),
+                            'Carb'=>array('0','',false),'Protein'=>array('0','',false),
+                            'Fibre'=>array('0','',false),'Water'=>array('0','',false));
     //$nutrientValueArray = array_fill(0, count($nutrientNameArray), 0);
     $count = 0;
     $index = 0;
@@ -62,9 +66,10 @@
             foreach ($nutrientArray as $key => $value) {
 
                 if ((strpos($foodNutrientsArray[$x]['nutrientName'], $key) !== false)
-                    and $nutrientArray[$key][1] == false) {
+                    and $nutrientArray[$key][2] == false) {
 
-                    $nutrientArray[$key] = array($foodNutrientsArray[$x]['value'], true);
+                    $nutrientArray[$key] = array(
+                            $foodNutrientsArray[$x]['value'],$foodNutrientsArray[$x]['unitName'], true);
                     $count++;
 
                 }
@@ -72,15 +77,40 @@
         }
         $index++;
     }
-
     // print the array as a preliminary result
-    print_r($nutrientArray);
+    // print_r($nutrientArray);
+
+    // vitamins
+    $vit_a = $nutrientArray['Vitamin A'][0];
+    $vit_d = $nutrientArray['Vitamin D'][0];
+    $vit_e = $nutrientArray['Vitamin E'][0];
+    $vit_k = $nutrientArray['Vitamin K'][0];
+    $vit_c = $nutrientArray['Vitamin C'][0];
+    // elements
+    $calcium = $nutrientArray['Calcium'][0];
+    $copper = $nutrientArray['Copper'][0];
+    $iodine = $nutrientArray['Iodine'][0];
+    $fluoride = $nutrientArray['Fluoride'][0];
+    $iron = $nutrientArray['Iron'][0];
+    // macronutrients
+    $carb = $nutrientArray['Carb'][0];
+    $protein = $nutrientArray['Protein'][0];
+    $fibre = $nutrientArray['Fibre'][0];
+    $water = $nutrientArray['Water'][0];
+
+    $q_name = "SELECT Count(*) FROM UpdateNutrients";
+    $result = mysqli_query($conn, $q_name);
+    $num = ($result->fetch_array())[0];
+    $name = 'name'.strval($num);
+    $sql = "INSERT INTO UpdateNutrients VALUES('$name', '$vit_a', '$vit_d', '$vit_e', '$$vit_k', '$vit_c',
+                                   '$calcium', '$copper', '$iodine', '$fluoride', '$iron', 
+                                   '$carb', '$protein','$fibre', '$water',
+                                   '$email')";
+    mysqli_query($conn, $sql);
+
+    CloseCon($conn);
 
 
-    //echo 'food nutrients array element 0 is ' . $foodNutrientsArray[0] . '<br /><br />';
-    // $errors = $response['response']['errors'];
-    // $data = $response['response']['data'][0];
 
-    // decode JSON results from API
 
 ?>
