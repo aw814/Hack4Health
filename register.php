@@ -13,9 +13,10 @@ $gender = $_POST["gender"];
 //echo $name;
 
 $sql = "INSERT INTO Users VALUES('$fname', '$lname', '$pwd', '$age', '$gender', '$email')";
-
 mysqli_query($conn, $sql);
 
 CloseCon($conn);
+
+header("Location: foodintake.html");
 
 ?>
