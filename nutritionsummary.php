@@ -255,126 +255,97 @@
     #example for sum v_a
     foreach($conn->query("SELECT email, SUM(v_a) 
         FROM UpdateNutrients WHERE email = '$user'") as $row) {
-        echo "<tr>";
-        echo "<td>" . $row['SUM(v_a)'] . "</td>";
-        echo "</tr>";
+
         $rv_a = $row['SUM(v_a)'];
     }
 
     #example for sum v_d
     foreach($conn->query("SELECT email, SUM(v_d) 
         FROM UpdateNutrients WHERE email = '$user'") as $row) {
-        echo "<tr>";
-        echo "<td>" . $row['SUM(v_d)'] . "</td>";
-        echo "</tr>";
+
         $rv_d = $row['SUM(v_d)'];
     }
 
     #example for sum v_e
     foreach($conn->query("SELECT email, SUM(v_e) 
         FROM UpdateNutrients WHERE email = '$user'") as $row) {
-        echo "<tr>";
-        echo "<td>" . $row['SUM(v_e)'] . "</td>";
-        echo "</tr>";
+
         $rv_e = $row['SUM(v_e)'];
     }
 
     #example for sum v_k
     foreach($conn->query("SELECT email, SUM(v_k) 
         FROM UpdateNutrients WHERE email = '$user'") as $row) {
-        echo "<tr>";
-        echo "<td>" . $row['SUM(v_k)'] . "</td>";
-        echo "</tr>";
+
         $rv_k = $row['SUM(v_k)'];
     }
 
     #example for sum v_c
     foreach($conn->query("SELECT email, SUM(v_c) 
         FROM UpdateNutrients WHERE email = '$user'") as $row) {
-        echo "<tr>";
-        echo "<td>" . $row['SUM(v_c)'] . "</td>";
-        echo "</tr>";
+
         $rv_c = $row['SUM(v_c)'];
     }
 
     #example for sum $rv_ca
     foreach($conn->query("SELECT email, SUM(calcium) 
         FROM UpdateNutrients WHERE email = '$user'") as $row) {
-        echo "<tr>";
-        echo "<td>" . $row['SUM(calcium)'] . "</td>";
-        echo "</tr>";
+
         $rv_ca = $row['SUM(calcium)'];
     }
 
     #example for sum $rv_co
     foreach($conn->query("SELECT email, SUM(copper) 
         FROM UpdateNutrients WHERE email = '$user'") as $row) {
-        echo "<tr>";
-        echo "<td>" . $row['SUM(copper)'] . "</td>";
-        echo "</tr>";
         $rv_co = $row['SUM(copper)'];
     }
 
     #example for sum $rv_io
     foreach($conn->query('SELECT SUM(iodine) 
         FROM UpdateNutrients') as $row) {
-        echo "<tr>";
-        echo "<td>" . $row['SUM(iodine)'] . "</td>";
-        echo "</tr>";
+
         $rv_io = $row['SUM(iodine)'];
     }
 
     #example for sum $rv_fl
     foreach($conn->query("SELECT email, SUM(fluoride) 
         FROM UpdateNutrients WHERE email = '$user'") as $row) {
-        echo "<tr>";
-        echo "<td>" . $row['SUM(fluoride)'] . "</td>";
-        echo "</tr>";
+
         $rv_fl = $row['SUM(fluoride)'];
     }
 
     #example for sum $rv_ir
     foreach($conn->query("SELECT email, SUM(iron) 
         FROM UpdateNutrients WHERE email = '$user'") as $row) {
-        echo "<tr>";
-        echo "<td>" . $row['SUM(iron)'] . "</td>";
-        echo "</tr>";
+
         $rv_ir = $row['SUM(iron)'];
     }
 
     #example for sum $rv_carb
     foreach($conn->query("SELECT email, SUM(carb) 
         FROM UpdateNutrients WHERE email = '$user'") as $row) {
-        echo "<tr>";
-        echo "<td>" . $row['SUM(carb)'] . "</td>";
-        echo "</tr>";
+
         $rv_carb = $row['SUM(carb)'];
     }
 
     #example for sum $rv_protein
     foreach($conn->query("SELECT email, SUM(protein) 
         FROM UpdateNutrients WHERE email = '$user'") as $row) {
-        echo "<tr>";
-        echo "<td>" . $row['SUM(protein)'] . "</td>";
-        echo "</tr>";
+
         $rv_protein = $row['SUM(protein)'];
     }
 
     #example for sum $rv_fibre
     foreach($conn->query("SELECT email, SUM(fibre) 
         FROM UpdateNutrients WHERE email = '$user'") as $row) {
-        echo "<tr>";
-        echo "<td>" . $row['SUM(fibre)'] . "</td>";
-        echo "</tr>";
+
         $rv_fibre = $row['SUM(fibre)'];
     }
 
     #example for sum $rv_water
     foreach($conn->query("SELECT email, SUM(water) 
         FROM UpdateNutrients WHERE email = '$user'") as $row) {
-        echo "<tr>";
-        echo "<td>" . $row['SUM(water)'] . "</td>";
-        echo "</tr>";
+
         $rv_water = $row['SUM(water)'];
     }
 
@@ -397,9 +368,7 @@
     $Nutrient[12] = Need($rv_fibre,$Reference[12]);
     $Nutrient[13] = Need($rv_water,$Reference[13]);
 
-    foreach ($Nutrient as $value) {
-        echo "\n $value <br>";
-    }
+
 
     //$snv_a = Need($rv_a,$Reference[0]);
     //$snv_d = Need($rv_d,$Reference[1]);
@@ -434,16 +403,72 @@
         <td>Intake</td>
         <td>Daily recommendation</td>
       </tr>
-      <tr>
-        <td>A</td>
-        <td>500 mg</td>
-        <td>2000 mg</td>
-      </tr>
-      <tr>
-        <td>C</td>
-        <td>400 mg</td>
-        <td>1200 mg</td>
-      </tr>
+        <tr>
+            <td>Vitamin A</td>
+            <td><?php
+                echo $rv_a
+                ?></td>
+            <td>
+                <?php
+                echo $Nutrient[0]
+                ?>
+            </td>
+        </tr>
+        <tr>
+            <td>Vitamin D</td>
+            <td><?php
+                echo $rv_d
+                ?></td>
+            <!--          <td>--><?php
+            //              echo $Reference[1]
+            //              ?><!--</td>-->
+            <td>
+                <?php
+                echo $Nutrient[1]
+                ?>
+            </td>
+        </tr>
+        <tr>
+            <td>Vitamin E</td>
+            <td><?php
+                echo $rv_e
+                ?></td>
+            <!--          <td>--><?php
+            //              echo $Reference[2]
+            //              ?><!--</td>-->
+            <td>
+                <?php
+                echo $Nutrient[2]
+                ?>
+            </td>
+        </tr>
+        <tr>
+            <td>Vitamin K</td>
+            <td><?php
+                echo $rv_k
+                ?></td>
+            <!--          <td>--><?php
+            //              echo $Reference[3]
+            //              ?><!--</td>-->
+            <td><?php
+                echo $Nutrient[3]
+                ?>
+            </td>
+        </tr>
+        <tr>
+            <td>Vitamin C</td>
+            <td><?php
+                echo $rv_c
+                ?></td>
+            <!--          <td>--><?php
+            //              echo $Reference[4]
+            //              ?><!--</td>-->
+            <td><?php
+                echo $Nutrient[4]
+                ?></td>
+        </tr>
+
+
     </table>
 
     <br />
@@ -455,16 +480,66 @@
         <td>Intake</td>
         <td>Daily recommendation</td>
       </tr>
-      <tr>
-        <td>Calcium</td>
-        <td>500 mg</td>
-        <td>2000 mg</td>
-      </tr>
-      <tr>
-        <td>Chromium</td>
-        <td>400 mg</td>
-        <td>1200 mg</td>
-      </tr>
+        <tr>
+            <td>Calcium</td>
+            <td><?php
+                echo $rv_ca
+                ?></td>
+            <!--          <td>--><?php
+            //              echo $Reference[5]
+            //              ?><!--</td>-->
+            <td><?php
+                echo $Nutrient[5]
+                ?></td>
+        </tr>
+        <tr>
+            <td>Copper</td>
+            <td><?php
+                echo $rv_co
+                ?></td>
+            <!--          <td>--><?php
+            //              echo $Reference[6]
+            //              ?><!--</td>-->
+            <td><?php
+                echo $Nutrient[6]
+                ?></td>
+        </tr>
+        <tr>
+            <td>Iodine</td>
+            <td><?php
+                echo $rv_io
+                ?></td>
+            <!--          <td>--><?php
+            //              echo $Reference[7]
+            //              ?><!--</td>-->
+            <td><?php
+                echo $Nutrient[7]
+                ?></td>
+        </tr>
+        <tr>
+            <td>Fluoride</td>
+            <td><?php
+                echo $rv_fl
+                ?></td>
+            <!--          <td>--><?php
+            //              echo $Reference[8]
+            //              ?><!--</td>-->
+            <td><?php
+                echo $Nutrient[8]
+                ?></td>
+        </tr>
+        <tr>
+            <td>Iron</td>
+            <td><?php
+                echo $rv_ir
+                ?></td>
+            <!--          <td>--><?php
+            //              echo $Reference[9]
+            //              ?><!--</td>-->
+            <td><?php
+                echo $Nutrient[9]
+                ?></td>
+        </tr>
     </table>
 
     <br />
@@ -477,130 +552,7 @@
 <!--        <td>Daily recommendation</td>-->
         <td>You still need (g)</td>
       </tr>
-      <tr>
-        <td>Vitamin A</td>
-        <td><?php
-            echo $rv_a
-            ?></td>
-        <td>
-            <?php
-            echo $Nutrient[0]
-            ?>
-        </td>
-      </tr>
-      <tr>
-        <td>Vitamin D</td>
-          <td><?php
-              echo $rv_d
-              ?></td>
-<!--          <td>--><?php
-//              echo $Reference[1]
-//              ?><!--</td>-->
-          <td>
-              <?php
-              echo $Nutrient[1]
-              ?>
-          </td>
-      </tr>
-      <tr>
-        <td>Vitamin E</td>
-          <td><?php
-              echo $rv_e
-              ?></td>
-<!--          <td>--><?php
-//              echo $Reference[2]
-//              ?><!--</td>-->
-          <td>
-              <?php
-              echo $Nutrient[2]
-              ?>
-          </td>
-      </tr>
-      <tr>
-        <td>Vitamin K</td>
-          <td><?php
-              echo $rv_k
-              ?></td>
-<!--          <td>--><?php
-//              echo $Reference[3]
-//              ?><!--</td>-->
-          <td><?php
-              echo $Nutrient[3]
-              ?>
-          </td>
-      </tr>
-      <tr>
-        <td>Vitamin C</td>
-          <td><?php
-              echo $rv_c
-              ?></td>
-<!--          <td>--><?php
-//              echo $Reference[4]
-//              ?><!--</td>-->
-          <td><?php
-              echo $Nutrient[4]
-              ?></td>
-      </tr>
-      <tr>
-        <td>Calcium</td>
-          <td><?php
-              echo $rv_ca
-              ?></td>
-<!--          <td>--><?php
-//              echo $Reference[5]
-//              ?><!--</td>-->
-          <td><?php
-              echo $Nutrient[5]
-              ?></td>
-      </tr>
-      <tr>
-        <td>Copper</td>
-          <td><?php
-              echo $rv_co
-              ?></td>
-<!--          <td>--><?php
-//              echo $Reference[6]
-//              ?><!--</td>-->
-          <td><?php
-              echo $Nutrient[6]
-              ?></td>
-      </tr>
-      <tr>
-        <td>Iodine</td>
-          <td><?php
-              echo $rv_io
-              ?></td>
-<!--          <td>--><?php
-//              echo $Reference[7]
-//              ?><!--</td>-->
-          <td><?php
-              echo $Nutrient[7]
-              ?></td>
-      </tr>
-      <tr>
-        <td>Fluoride</td>
-          <td><?php
-              echo $rv_fl
-              ?></td>
-<!--          <td>--><?php
-//              echo $Reference[8]
-//              ?><!--</td>-->
-          <td><?php
-              echo $Nutrient[8]
-              ?></td>
-      </tr>
-      <tr>
-        <td>Iron</td>
-          <td><?php
-              echo $rv_ir
-              ?></td>
-<!--          <td>--><?php
-//              echo $Reference[9]
-//              ?><!--</td>-->
-          <td><?php
-              echo $Nutrient[9]
-              ?></td>
-      </tr>
+
 
       <tr>
         <td>Carbs</td>
