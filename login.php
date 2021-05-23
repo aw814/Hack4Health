@@ -18,7 +18,7 @@ function handleLoginRequest($conn) {
 
     if ($num == 1) {
         echo "<br>Logged In Successfully!<br>";
-        header('refresh:0.5; url=foodintake.html');
+        header('refresh:0.5; url=foodintake.php');
     } else if ($num == 0) {
         header('refresh:2; url=index.html');
         echo "<br>Email or password wrong. Auto-refresh in 2 seconds.<br>";
