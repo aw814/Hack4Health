@@ -25,17 +25,66 @@
   <body>
     <!-- Add your site or application content here -->
     <script src="js/vendor/modernizr-3.11.2.min.js"></script>
+    <script src="js/vendor/jquery-3.6.0.js"></script>
     <script src="js/plugins.js"></script>
+    <!-- <script src="js/foodintake.js"></script> -->
 
-    <!-- Maybe it is easier to put everything on one page, so it's easy to access.
-      So we may not need this page. -->
+    <h1>Food Intake</h1>
+
+    <form action="foodintake_add.php" method="get">
+      <label for="food">Enter in food item:</label><br />
+      <input type="text" id="food" name="food" />
+      <br /><br />
+
+      <label for="quantity">Enter in quantity:</label><br />
+      <input type="text" id="quantity" name="quantity" />
+
+      <!-- <button id="btn_add">Add</button> -->
+      <input type="submit" value="Add" />
+    </form>
+
+    <br /><br />
+
+
+    <br /><br />
+    <div id="feedback" style="color: red"></div>
+
+    <hr />
+    <h2>List of food items eaten:</h2>
+
+    <table>
+      <tr>
+        <td>Food item</td>
+        <td>Quantity</td>
+        <td>Time eaten</td>
+      </tr>
+      <tr>
+        <td>Apple</td>
+        <td>1</td>
+        <td>8:30 AM</td>
+      </tr>
+      <tr>
+        <td>Donuts</td>
+        <td>3</td>
+        <td>9:05 PM</td>
+      </tr>
+    </table>
+
+    <!-- Maybe we don't need the nutritionsummary.html page, 
+      as it might be easier to populate and access the data just from one page
+    -->
+    <!--
+      <br />
+      <br />
+      <a href="nutritionsummary.html">Check your nutrition so far</a>
+    -->
     <h1>Total Nutrition</h1>
 
     <table>
       <tr>
-        <td>Vitamins</td>
-        <td>Intake</td>
-        <td>Daily recommendation</td>
+        <th>Vitamins</th>
+        <th>Intake</th>
+        <th>Daily recommendation</th>
       </tr>
       <tr>
         <td>A</td>
@@ -54,9 +103,9 @@
 
     <table>
       <tr>
-        <td>Elements</td>
-        <td>Intake</td>
-        <td>Daily recommendation</td>
+        <th>Elements</td>
+        <th>Intake</th>
+        <th>Daily recommendation</th>
       </tr>
       <tr>
         <td>Calcium</td>
@@ -75,9 +124,9 @@
 
     <table>
       <tr>
-        <td>Macronutrients</td>
-        <td>Intake</td>
-        <td>Daily recommendation</td>
+        <th>Macronutrients</th>
+        <th>Intake</th>
+        <th>Daily recommendation</th>
       </tr>
       <tr>
         <td>Carbs</td>
@@ -91,8 +140,5 @@
       </tr>
     </table>
 
-    <br />
-    <br />
-    <a href="index.html">Logout</a>
   </body>
 </html>
