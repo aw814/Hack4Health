@@ -1,1 +1,0 @@
-/* Author's Javascript/jQuery */
