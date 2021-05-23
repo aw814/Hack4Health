@@ -11,7 +11,7 @@ $info = mysqli_fetch_array($result);
 $age = $info[0];
 $gender = $info[1];
 
-if (1 <= $age <= 3){
+if ((1 <= $age) && ($age<= 3)){
     $Reference[0] = 210*10^(-6);
     $Reference[1] = 10*10^(-6);
     $Reference[2] = 5*10^(-3);
@@ -26,7 +26,7 @@ if (1 <= $age <= 3){
     $Reference[11] = 0.87;
     $Reference[12] = 19;
     $Reference[13] = 1.3;
-} else if (4 <= $age <= 8){
+} else if ((4 <= $age) && ($age<= 8)){
     $Reference[0] = 275*10^(-6);
     $Reference[1] = 10*10^(-6);
     $Reference[2] = 6*10^(-3);
@@ -41,7 +41,7 @@ if (1 <= $age <= 3){
     $Reference[11] = 0.76;
     $Reference[12] = 25;
     $Reference[13] = 1.7;
-} else if (9 <= $age <= 13){
+} else if ((9 <= $age) && ($age<= 13)){
     if($gender == "M"){
     $Reference[0] = 445*10^(-6);
     $Reference[1] = 10*10^(-6);
@@ -73,7 +73,7 @@ if (1 <= $age <= 3){
     $Reference[12] = 26;
     $Reference[13] = 2.1;
     }
-}else if (14 <= $age <= 18){
+}else if ((14 <= $age) && ($age<= 18)){
     if($gender == "M"){
     $Reference[0] = 630*10^(-6);
     $Reference[1] = 10*10^(-6);
@@ -105,7 +105,7 @@ if (1 <= $age <= 3){
     $Reference[12] = 26;
     $Reference[13] = 2.3;
     }
-} else if (19 <= $age <= 50){
+} else if ((19 <= $age) && ($age<= 50)){
     if($gender == "M"){
     $Reference[0] = 625*10^(-6);
     $Reference[1] = 10*10^(-6);
@@ -137,7 +137,7 @@ if (1 <= $age <= 3){
     $Reference[12] = 25;
     $Reference[13] = 2.7;
     }
-} else if (51 <= $age <= 70){
+} else if ((51 <= $age) && ($age<= 70)){
     if($gender == "M"){
     $Reference[0] = 625*10^(-6);
     $Reference[1] = 10*10^(-6);
@@ -202,6 +202,15 @@ if (1 <= $age <= 3){
     $Reference[13] = 2.7;
     }
 }
+
+
+$clear_data = "CREATE EVENT clear_data_at_midnight 
+ON SCHEDULE EVERY 1 DAY STARTS CURDATE() + INTERVAL 1 DAY
+DELETE FROM UpdateNutrients, NutritionReport, Display WHERE UpdateNutrients.name = Display.name and NutritionReport.reportID = Display.reportID";
+
+mysqli_query($conn, $clear_data);
+
+
 
 CloseCon($conn);
 ?>
