@@ -20,7 +20,7 @@ $(document).ready(function () {
 
         // Proceed only if there are any results
         if (data) {
-          //data.status==='OK' && data.results && data.results.length > 0
+          //data.status==='OK' && data.foods && data.foods.length > 0
           // vitamin C specifically just to demo JSON
           const foodNutrition = data.foods[0].foodNutrients[6].value;
 
