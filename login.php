@@ -29,14 +29,14 @@ function handleLoginRequest($conn) {
 
 function handlePOSTRequest() {
     $conn = OpenCon();
-    if (array_key_exists('email', $_POST) || array_key_exists('password', $_POST)) {
+    if (array_key_exists('login', $_POST)) {
 
         handleLoginRequest($conn);
     }
     CloseCon($conn);
 }
 
-if (isset($_POST['email']) || isset($_POST['password'])) {
+if (isset($_POST['login'])) {
 
     handlePOSTRequest();
 }
