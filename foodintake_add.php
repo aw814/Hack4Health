@@ -99,16 +99,24 @@
     $water = $nutrientArray['Water'][0];
 
     $q_name = "SELECT Count(*) FROM UpdateNutrients";
+
     $result = mysqli_query($conn, $q_name);
+
     $num = ($result->fetch_array())[0];
+    echo 'c1';
     $name = 'name'.strval($num);
+    echo $name;
     $sql = "INSERT INTO UpdateNutrients VALUES('$name', '$vit_a', '$vit_d', '$vit_e', '$$vit_k', '$vit_c',
                                    '$calcium', '$copper', '$iodine', '$fluoride', '$iron', 
                                    '$carb', '$protein','$fibre', '$water',
                                    '$email')";
+    echo 'c3';
     mysqli_query($conn, $sql);
+    echo 'c4';
+
 
     CloseCon($conn);
+    // header("Location: foodintake.php");
 
 
 
