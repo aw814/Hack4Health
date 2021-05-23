@@ -29,54 +29,9 @@
     <script src="js/plugins.js"></script>
     <!-- <script src="js/foodintake.js"></script> -->
 
-    <?php
-      $MY_API_KEY = "Nns7eKVF4qQtGNOqQjLzB4AWmHDE8K7hwbw0oLFQ"; // in future, put key in external file
-
-      $item = '';
-      $data = '';
-      
-      // vitamins
-      $vit_a = '';
-      $vit_d = '';
-      $vit_e = '';
-      $vit_k = '';
-      $vit_c = '';
-      // elements
-      $calcium = '';
-      $copper = '';
-      $iodine = '';
-      $fluoride = '';
-      $iron = '';
-      // macronutrients
-      $carb = '';
-      $protein = '';
-      $fiibre = '';
-      $water = '';
-
-      // API call
-      // decode JSON results from API
-      // save to variables
-      // populate HTML on page
-
-      require_once("call_api.php");
-
-      function getNutritionData($item, $quantity){
-        $rawdata = callAPI(
-          'GET', 
-          'https://api.nal.usda.gov/fdc/v1/foods/search?api_key='.$MY_API_KEY.'&query='.$item, 
-          false
-        );
-        $response = json_decode($rawdata, true);
-        echo $response;
-        // $errors = $response['response']['errors'];
-        // $data = $response['response']['data'][0];
-      }
-     
-    ?>
-
     <h1>Food Intake</h1>
 
-    <form action="getNutritionData( $_GET['food'], $_GET['quantity'] )" method="post">
+    <form action="foodintake_add.php" method="get">
       <label for="food">Enter in food item:</label><br />
       <input type="text" id="food" name="food" />
       <br /><br />
