@@ -34,7 +34,7 @@
     include 'connect.php';
     $conn = OpenCon();
 
-    $user = $_SESSION["user"];
+    $user = $_SESSION["email"];
 
     $sql = "SELECT age, gender FROM Users Where email = '$user'";
     $result = mysqli_query($conn, $sql);
@@ -253,8 +253,8 @@
     $rv_water = 0;
 
     #example for sum v_a
-    foreach($conn->query('SELECT SUM(v_a) 
-        FROM UpdateNutrients WHERE email = "$user"') as $row) {
+    foreach($conn->query("SELECT email, SUM(v_a) 
+        FROM UpdateNutrients WHERE email = '$user'") as $row) {
         echo "<tr>";
         echo "<td>" . $row['SUM(v_a)'] . "</td>";
         echo "</tr>";
@@ -262,8 +262,8 @@
     }
 
     #example for sum v_d
-    foreach($conn->query('SELECT SUM(v_d) 
-        FROM UpdateNutrients WHERE email = "$user"') as $row) {
+    foreach($conn->query("SELECT email, SUM(v_d) 
+        FROM UpdateNutrients WHERE email = '$user'") as $row) {
         echo "<tr>";
         echo "<td>" . $row['SUM(v_d)'] . "</td>";
         echo "</tr>";
@@ -271,8 +271,8 @@
     }
 
     #example for sum v_e
-    foreach($conn->query('SELECT SUM(v_e) 
-        FROM UpdateNutrients WHERE email = "$user"') as $row) {
+    foreach($conn->query("SELECT email, SUM(v_e) 
+        FROM UpdateNutrients WHERE email = '$user'") as $row) {
         echo "<tr>";
         echo "<td>" . $row['SUM(v_e)'] . "</td>";
         echo "</tr>";
@@ -280,8 +280,8 @@
     }
 
     #example for sum v_k
-    foreach($conn->query('SELECT SUM(v_k) 
-        FROM UpdateNutrients WHERE email = "$user"') as $row) {
+    foreach($conn->query("SELECT email, SUM(v_k) 
+        FROM UpdateNutrients WHERE email = '$user'") as $row) {
         echo "<tr>";
         echo "<td>" . $row['SUM(v_k)'] . "</td>";
         echo "</tr>";
@@ -289,8 +289,8 @@
     }
 
     #example for sum v_c
-    foreach($conn->query('SELECT SUM(v_c) 
-        FROM UpdateNutrients WHERE email = "$user"') as $row) {
+    foreach($conn->query("SELECT email, SUM(v_c) 
+        FROM UpdateNutrients WHERE email = '$user'") as $row) {
         echo "<tr>";
         echo "<td>" . $row['SUM(v_c)'] . "</td>";
         echo "</tr>";
@@ -298,8 +298,8 @@
     }
 
     #example for sum $rv_ca
-    foreach($conn->query('SELECT SUM(calcium) 
-        FROM UpdateNutrients WHERE email = "$user"') as $row) {
+    foreach($conn->query("SELECT email, SUM(calcium) 
+        FROM UpdateNutrients WHERE email = '$user'") as $row) {
         echo "<tr>";
         echo "<td>" . $row['SUM(calcium)'] . "</td>";
         echo "</tr>";
@@ -307,8 +307,8 @@
     }
 
     #example for sum $rv_co
-    foreach($conn->query('SELECT SUM(copper) 
-        FROM UpdateNutrients WHERE email = "$user"') as $row) {
+    foreach($conn->query("SELECT email, SUM(copper) 
+        FROM UpdateNutrients WHERE email = '$user'") as $row) {
         echo "<tr>";
         echo "<td>" . $row['SUM(copper)'] . "</td>";
         echo "</tr>";
@@ -317,7 +317,7 @@
 
     #example for sum $rv_io
     foreach($conn->query('SELECT SUM(iodine) 
-        FROM UpdateNutrients WHERE email = "$user"') as $row) {
+        FROM UpdateNutrients') as $row) {
         echo "<tr>";
         echo "<td>" . $row['SUM(iodine)'] . "</td>";
         echo "</tr>";
@@ -325,8 +325,8 @@
     }
 
     #example for sum $rv_fl
-    foreach($conn->query('SELECT SUM(fluoride) 
-        FROM UpdateNutrients WHERE email = "$user"') as $row) {
+    foreach($conn->query("SELECT email, SUM(fluoride) 
+        FROM UpdateNutrients WHERE email = '$user'") as $row) {
         echo "<tr>";
         echo "<td>" . $row['SUM(fluoride)'] . "</td>";
         echo "</tr>";
@@ -334,8 +334,8 @@
     }
 
     #example for sum $rv_ir
-    foreach($conn->query('SELECT SUM(iron) 
-        FROM UpdateNutrients WHERE email = "$user"') as $row) {
+    foreach($conn->query("SELECT email, SUM(iron) 
+        FROM UpdateNutrients WHERE email = '$user'") as $row) {
         echo "<tr>";
         echo "<td>" . $row['SUM(iron)'] . "</td>";
         echo "</tr>";
@@ -343,8 +343,8 @@
     }
 
     #example for sum $rv_carb
-    foreach($conn->query('SELECT SUM(carb) 
-        FROM UpdateNutrients WHERE email = "$user"') as $row) {
+    foreach($conn->query("SELECT email, SUM(carb) 
+        FROM UpdateNutrients WHERE email = '$user'") as $row) {
         echo "<tr>";
         echo "<td>" . $row['SUM(carb)'] . "</td>";
         echo "</tr>";
@@ -352,8 +352,8 @@
     }
 
     #example for sum $rv_protein
-    foreach($conn->query('SELECT SUM(protein) 
-        FROM UpdateNutrients WHERE email = "$user"') as $row) {
+    foreach($conn->query("SELECT email, SUM(protein) 
+        FROM UpdateNutrients WHERE email = '$user'") as $row) {
         echo "<tr>";
         echo "<td>" . $row['SUM(protein)'] . "</td>";
         echo "</tr>";
@@ -361,8 +361,8 @@
     }
 
     #example for sum $rv_fibre
-    foreach($conn->query('SELECT SUM(fibre) 
-        FROM UpdateNutrients WHERE email = "$user"') as $row) {
+    foreach($conn->query("SELECT email, SUM(fibre) 
+        FROM UpdateNutrients WHERE email = '$user'") as $row) {
         echo "<tr>";
         echo "<td>" . $row['SUM(fibre)'] . "</td>";
         echo "</tr>";
@@ -370,8 +370,8 @@
     }
 
     #example for sum $rv_water
-    foreach($conn->query('SELECT SUM(water) 
-        FROM UpdateNutrients WHERE email = "$user"') as $row) {
+    foreach($conn->query("SELECT email, SUM(water) 
+        FROM UpdateNutrients WHERE email = '$user'") as $row) {
         echo "<tr>";
         echo "<td>" . $row['SUM(water)'] . "</td>";
         echo "</tr>";
