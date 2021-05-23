@@ -5,8 +5,8 @@
     // get values from form input fields
     $food = $_GET['food'];
     $quantity = $_GET['quantity'];
-    echo 'food is' . $food;
-    echo 'quantity is' . $quantity;
+    echo 'food is ' . $food;
+    echo 'quantity is ' . $quantity;
 
     // Variables
     $data = '';
@@ -34,9 +34,12 @@
         'https://api.nal.usda.gov/fdc/v1/foods/search?api_key='.$MY_API_KEY.'&query='.$food, 
         false
     );
+    echo 'API response raw data is ' . $rawdata;
     $response = json_decode($rawdata, true);
-    // echo 'API response is' . $response;
-    echo 'API response array element 0 is' . $response[0];
+    echo 'API response is' . $response;
+    
+    $foodNutrientsArray = foods[0].foodNutrients;
+    echo 'food nutrients array is ' . $foodNutrientsArray;
     // $errors = $response['response']['errors'];
     // $data = $response['response']['data'][0];
 
