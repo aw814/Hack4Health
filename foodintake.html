@@ -24,7 +24,6 @@
 
   <body>
     <!-- Add your site or application content here -->
-    <p>Hello world! This is HTML5 Boilerplate.</p>
     <script src="js/vendor/modernizr-3.11.2.min.js"></script>
     <script src="js/vendor/jquery-3.6.0.js"></script>
     <script src="js/plugins.js"></script>
@@ -33,12 +32,17 @@
     <h1>Food Intake</h1>
 
     <label for="food">Enter in food item:</label><br />
-    <input type="text" id="food" name="food" value="apple" /><br /><br />
+    <input type="text" id="food" name="food" />
+    <br /><br />
 
     <label for="quantity">Enter in quantity:</label><br />
-    <input type="text" id="quantity" name="quantity" value="1" /><br /><br />
+    <input type="text" id="quantity" name="quantity" />
+    <br /><br />
 
-    <button>Add</button>
+    <button id="btn_add">Add</button>
+
+    <br /><br />
+    <div id="feedback" style="color: red"></div>
 
     <hr />
     <h2>List of food items eaten:</h2>
