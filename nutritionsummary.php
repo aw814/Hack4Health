@@ -400,8 +400,9 @@
     <table>
       <tr>
         <td>Vitamins</td>
-        <td>Intake</td>
-        <td>Daily recommendation</td>
+          <td>Intake (g)</td>
+          <!--        <td>Daily recommendation</td>-->
+          <td>You still need (g)</td>
       </tr>
         <tr>
             <td>Vitamin A</td>
@@ -477,8 +478,9 @@
     <table>
       <tr>
         <td>Elements</td>
-        <td>Intake</td>
-        <td>Daily recommendation</td>
+          <td>Intake (g)</td>
+          <!--        <td>Daily recommendation</td>-->
+          <td>You still need (g)</td>
       </tr>
         <tr>
             <td>Calcium</td>
