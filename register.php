@@ -10,6 +10,8 @@ $pwd = $_POST["password"];
 $age = $_POST["age"];
 $gender = $_POST["gender"];
 
+$_SESSION['email'] = $email;
+
 //$name = $fname. " ". $lname;
 //echo $name;
 
