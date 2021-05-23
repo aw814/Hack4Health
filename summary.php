@@ -204,11 +204,11 @@ if ((1 <= $age) && ($age<= 3)){
 }
 
 
-$clear_data = "CREATE EVENT clear_data_at_midnight 
-ON SCHEDULE EVERY 1 DAY STARTS CURDATE() + INTERVAL 1 DAY
-DELETE FROM UpdateNutrients, NutritionReport, Display WHERE UpdateNutrients.name = Display.name and NutritionReport.reportID = Display.reportID";
+// $clear_data = "CREATE EVENT clear_data_at_midnight 
+// ON SCHEDULE EVERY 1 DAY STARTS CURDATE() + INTERVAL 1 DAY
+// DELETE FROM UpdateNutrients, NutritionReport, Display WHERE UpdateNutrients.name = Display.name and NutritionReport.reportID = Display.reportID";
 
-mysqli_query($conn, $clear_data);
+// mysqli_query($conn, $clear_data);
 
 
 
