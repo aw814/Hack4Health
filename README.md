@@ -6,7 +6,7 @@ Overview:
 
 User provides daily food consumption, the webpage will produce the Nutrition Content that the user consumed. It will also have the function to remind users what other nutrition they need to intake more.
 
-The proposal is at: https://docs.google.com/document/d/1ByBsf0LQUZiPADH4iu5KVkld3q4h4POWfyimPDTz1d4/edit?usp=sharing
+Project Proposal is at: https://docs.google.com/document/d/1ByBsf0LQUZiPADH4iu5KVkld3q4h4POWfyimPDTz1d4/edit?usp=sharing
 
 We make an API call to FoodData Central (https://fdc.nal.usda.gov) to get nutrition data for food items taken, and compare it to the daily recommended amount from the Canadian government website (https://www.canada.ca/en/health-canada/services/food-nutrition/healthy-eating/dietary-reference-intakes/tables.html).
 

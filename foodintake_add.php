@@ -3,7 +3,6 @@
     include 'connect.php';
     $conn = OpenCon();
     $email = $_SESSION['email'];
-    // echo $email;
 
     require_once("call_api.php");
     $MY_API_KEY = "Nns7eKVF4qQtGNOqQjLzB4AWmHDE8K7hwbw0oLFQ"; // in future, put key in external file
@@ -11,28 +10,6 @@
     // get values from form input fields
     $food = $_GET['food'];
     $quantity = $_GET['quantity'];
-    echo 'food is ' . $food . '<br /><br />';
-    echo 'quantity is ' . $quantity . '<br /><br />';
-
-    // Variables
-    $name = '';
-    // vitamins
-    $vit_a = '';
-    $vit_d = '';
-    $vit_e = '';
-    $vit_k = '';
-    $vit_c = '';
-    // elements
-    $calcium = '';
-    $copper = '';
-    $iodine = '';
-    $fluoride = '';
-    $iron = '';
-    // macronutrients
-    $carb = '';
-    $protein = '';
-    $fibre = '';
-    $water = '';
     
     // API call
     $rawdata = callAPI(
@@ -40,11 +17,9 @@
         'https://api.nal.usda.gov/fdc/v1/foods/search?api_key='.$MY_API_KEY.'&query='.$food, 
         false
     );
-    // echo 'API response raw data is ' . $rawdata . '<br /><br />';
 
     $response = json_decode($rawdata, true);
     // echo 'API response is ' . $response['foods'] . '<br /><br /><br /><br /><br /><br /><br /><br />';
-    // echo 'API response is ' . $response . '<br /><br /><br /><br /><br /><br /><br /><br />';
 
     $nutrientArray = array('Vitamin A'=>array('0','',false),'Vitamin D'=>array('0','',false),
                            'Vitamin E'=>array('0','',false),'Vitamin K'=>array('0','',false),
@@ -54,6 +29,7 @@
                             'Carb'=>array('0','',false),'Protein'=>array('0','',false),
                             'Fibre'=>array('0','',false),'Water'=>array('0','',false));
     //$nutrientValueArray = array_fill(0, count($nutrientNameArray), 0);
+
     $count = 0;
     $index = 0;
     while ($count < count($nutrientArray) and $index < 50) {
@@ -112,5 +88,4 @@
 
     CloseCon($conn);
     header("Location: nutritionsummary.php");
-
 ?>
