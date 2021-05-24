@@ -1,11 +1,12 @@
 <?php
+    $MY_API_KEY = "Nns7eKVF4qQtGNOqQjLzB4AWmHDE8K7hwbw0oLFQ"; // may need to put this in a hidden file
+    
     session_start();
     include 'connect.php';
     $conn = OpenCon();
     $email = $_SESSION['email'];
 
     require_once("call_api.php");
-    $MY_API_KEY = "Nns7eKVF4qQtGNOqQjLzB4AWmHDE8K7hwbw0oLFQ"; // in future, put key in external file
 
     // get values from form input fields
     $food = $_GET['food'];

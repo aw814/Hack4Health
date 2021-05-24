@@ -28,6 +28,6 @@ mysqli_query($conn, $sql);
 
 CloseCon($conn);
 
-header("Location: foodintake.php");
+header("Location: foodintake.html");
 
 ?>

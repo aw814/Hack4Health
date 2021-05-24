@@ -2,8 +2,6 @@
 session_start();
 require 'connect.php';
 
-
-
 function handleLoginRequest($conn) {
 
     $email = $_POST['email'];
@@ -20,14 +18,13 @@ function handleLoginRequest($conn) {
 
     if ($num == 1) {
         echo "<br>Logged In Successfully!<br>";
-        header('refresh:0.5; url=foodintake.php');
+        header('refresh:0.5; url=foodintake.html');
     } else if ($num == 0) {
         header('refresh:2; url=index.html');
         echo "<br>Email or password wrong. Auto-refresh in 2 seconds.<br>";
     }
     # CloseCon($conn);
 }
-
 
 function handlePOSTRequest() {
     $conn = OpenCon();
@@ -43,3 +40,4 @@ if (isset($_POST['login'])) {
     handlePOSTRequest();
 }
 
+?>

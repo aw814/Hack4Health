@@ -1,6 +1,7 @@
 <?php
 function OpenCon()
 {
+    // may need to put these details in a hidden file
     $dbhost = "sql3.freemysqlhosting.net";
     $username = "sql3414176";
     $password = "Ne8cnLXtVH";
