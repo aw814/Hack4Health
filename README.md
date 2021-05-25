@@ -34,3 +34,8 @@ Future Improvements:
 - Add a timestamp, so that users can see the time they ate each food item and further functionalities can be developed like comparing the data between different days.
 - Form field validation, eg. email address limit, and password hidden.
 - UI design (e.g. make drop-down menu instead of text input for Gender, make scrollable pages)
+
+To run this project locally on your computer:
+
+- Copy and paste the config.php.example file, and rename it to config.php. Then update the file's content with your own API and database connection details.
+- You will need to run a localhost server such as XAMPP (https://www.apachefriends.org), and deploy the project inside the 'htdocs' folder. Then you should be able to run it in a web browser with a URL similar to http://localhost/Hack4Health

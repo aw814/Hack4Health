@@ -1,0 +1,13 @@
+<?php
+    // Couldn't get PHP Dotenv to work (https://github.com/vlucas/phpdotenv),
+    // so following a similar approach: https://gist.github.com/derzorngottes/3b57edc1f996dddcab25
+    
+    // USDA API Key
+    $CONFIG_USDA_API_KEY = "paste_your_own_api_key_here"; // https://fdc.nal.usda.gov/api-key-signup.html
+
+    // SQL Server connection credentials - https://www.freemysqlhosting.net
+    $CONFIG_SQL_DB_HOST = "paste_your_own_database_host_here";
+    $CONFIG_SQL_DB_USERNAME = "paste_your_own_username_here";
+    $CONFIG_SQL_DB_PASSWORD = "paste_your_own_password_here";
+    $CONFIG_SQL_DB_NAME = "paste_your_own_database_name_here"; 
+?>
