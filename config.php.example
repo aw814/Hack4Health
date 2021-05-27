@@ -1,6 +1,6 @@
 <?php
     // Couldn't get PHP Dotenv to work (https://github.com/vlucas/phpdotenv),
-    // so following a similar approach: https://gist.github.com/derzorngottes/3b57edc1f996dddcab25
+    // so following a simpler approach: https://gist.github.com/derzorngottes/3b57edc1f996dddcab25
     
     // USDA API Key - https://fdc.nal.usda.gov/api-key-signup.html
     $CONFIG_USDA_API_KEY = "replace_with_your_own";
