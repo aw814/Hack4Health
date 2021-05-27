@@ -12,9 +12,6 @@ $gender = $_POST["gender"];
 
 $_SESSION['email'] = $email;
 
-//$name = $fname. " ". $lname;
-//echo $name;
-
 if( ($fname == '') || ($lname == '') || ($email == '') || ($pwd == '') || ($age == '') || ($gender == '')) {
     echo "<br>All fields are required. Auto-refresh in 1 second.<br>";
     header("refresh:1; url='register.html'");
