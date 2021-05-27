@@ -3,11 +3,11 @@
     // so following a similar approach: https://gist.github.com/derzorngottes/3b57edc1f996dddcab25
     
     // USDA API Key - https://fdc.nal.usda.gov/api-key-signup.html
-    $CONFIG_USDA_API_KEY = "Nns7eKVF4qQtGNOqQjLzB4AWmHDE8K7hwbw0oLFQ"; //Replace with your own
+    $CONFIG_USDA_API_KEY = "replace_with_your_own";
 
     // SQL Server connection credentials - https://www.freemysqlhosting.net
-    $CONFIG_SQL_DB_HOST = "sql3.freemysqlhosting.net"; //Replace with your own
-    $CONFIG_SQL_DB_USERNAME = "sql3414176"; //Replace with your own
-    $CONFIG_SQL_DB_PASSWORD = "Ne8cnLXtVH"; //Replace with your own
-    $CONFIG_SQL_DB_NAME = "sql3414176";     //Replace with your own
+    $CONFIG_SQL_DB_HOST = "replace_with_your_own";
+    $CONFIG_SQL_DB_NAME = "replace_with_your_own";
+    $CONFIG_SQL_DB_USERNAME = "replace_with_your_own";
+    $CONFIG_SQL_DB_PASSWORD = "replace_with_your_own";
 ?>
